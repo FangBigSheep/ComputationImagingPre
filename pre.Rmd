@@ -62,25 +62,37 @@ $$
 
 - simplifies software integration by decoupling the prior and forwards model terms
 
-## Algorithm
+
+## Algorithm (1)
 
 - Intro to ADMM
 
-    + dual descent
-    + Multiplier method 
-    + ADMM
+$$
+\begin{aligned}
+x\in \mathbb R^m&,z\in \mathbb R^n, c\in \mathbb R^p.\\ \\
+\min_{x,z}&~f(x)+g(z),\\
+s.t.&~Ax+Bz=c.
+\end{aligned}
+$$
 
-- MAP framework
+Augmented Lagrangian ("soft" constraint).
+$$
+\min_{x,z,y}L_\rho(x,z,y)=f(x)+g(z)+y^T(Ax+Bz-c)+\frac\rho2\|Ax+Bz-c\|_2^2.
+$$
+
+## Algorithm (2)
+
+- MAP (maximal a posteriori)
 
 $$
 \max_x f(x|y)\propto f(y|x)f(x),
 $$
 which is equivalent to maximize
 $$
-\max_x \log(y|x)+\log(x)=l(y;x)+\beta \cdot s(x)
+\max_x \log f(y|x)+\log f(x)=l(y;x)+\beta \cdot s(x).
 $$
 
-## Algorithm
+## Algorithm (3)
 
 - Framework in this paper
 
@@ -108,7 +120,15 @@ $$
 $$
 
 
+
 ## Experiment and recent work (optional)
 
 optional
+
+
+## More about ADMM (optional)
+
+- dual descent
+- Multiplier method 
+- ADMM
 
