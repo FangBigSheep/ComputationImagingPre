@@ -376,7 +376,7 @@ Zhengyang Fang, Jin Li
 </ul>
 <p><span class="math inline">\(y\)</span>: observation. <span class="math inline">\(x\)</span>: the “truth”. <span class="math inline">\(A\)</span>: forward transform.</p>
 <p><span class="math display">\[
-\hat x =\min_x\|y-Ax\|_2^2-\tau\|x\|_{TV}.
+\hat x =\arg \min_x\|y-Ax\|_2^2-\tau\|x\|_{TV}.
 \]</span></p>
 <p>Solve by proximal gradient method:</p>
 <p>Step 1: Gradient Step: <span class="math display">\[
@@ -385,7 +385,12 @@ Zhengyang Fang, Jin Li
 x^{(k+1)}=\arg\min_x \frac12\|x-\tilde x\|_2^2+t_k\tau\|x\|_{TV}.
 \]</span></p>
 <ul>
-<li>Plug-and-play</li>
+<li><p>Motivation</p>
+<ul>
+<li><p>Generalize those two terms</p></li>
+<li><p>Use ADMM instead of proximal gradient method</p></li>
+<li><p>Plug-and-play: apply <em>(any)</em> denoising algorithm</p></li>
+</ul></li>
 </ul>
 </div>
 <div id="why-the-plug-and-play-model-is-important" class="slide section level2">
@@ -414,9 +419,43 @@ x^{(k+1)}=\arg\min_x \frac12\|x-\tilde x\|_2^2+t_k\tau\|x\|_{TV}.
 <div id="algorithm" class="slide section level2">
 <h1>Algorithm</h1>
 <ul>
-<li>Intro to ADMM</li>
-<li>MAP framework</li>
+<li><p>Intro to ADMM</p>
+<ul>
+<li>dual descent</li>
+<li>Multiplier method</li>
+<li>ADMM</li>
+</ul></li>
+<li><p>MAP framework</p></li>
 </ul>
+<p><span class="math display">\[
+\max_x f(x|y)\propto f(y|x)f(x),
+\]</span> which is equivalent to maximize <span class="math display">\[
+\max_x \log(y|x)+\log(x)=l(y;x)+\beta \cdot s(x)
+\]</span></p>
+</div>
+<div id="algorithm-1" class="slide section level2">
+<h2>Algorithm</h2>
+<ul>
+<li>Framework in this paper</li>
+</ul>
+<p>Solve <span class="math display">\[
+\begin{aligned}
+(\hat x,\hat v)=~&amp;\arg\max_{x,v}\{l(y;x)+\beta\cdot s(v)\},\\
+&amp;s.t.~x=v.
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(l(y;x)\)</span>: the forward transform.</p>
+<p><span class="math inline">\(\beta\cdot s(v)\)</span>: the prior.</p>
+<p>Algorithm:</p>
+<blockquote>
+<p>repeat until converge: <span class="math display">\[
+\begin{aligned}
+&amp;\hat x\leftarrow \arg\min_x\left\{l(y;x)+\frac\lambda 2\|x-(\hat v-u)\|_2^2\right\},\\
+&amp;\hat v\leftarrow \arg\min_v\left\{\frac \lambda 2\|v-(\hat x +u)\|^2_2+\beta s(v)\right\},\\
+&amp;v\leftarrow u+(\hat x-\hat v).
+\end{aligned}
+\]</span></p>
+</blockquote>
 </div>
 <div id="experiment-and-recent-work-optional" class="slide section level2">
 <h1>Experiment and recent work (optional)</h1>
