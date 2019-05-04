@@ -416,25 +416,35 @@ x^{(k+1)}=\arg\min_x \frac12\|x-\tilde x\|_2^2+t_k\tau\|x\|_{TV}.
 <li><p>simplifies software integration by decoupling the prior and forwards model terms</p></li>
 </ul>
 </div>
-<div id="algorithm" class="slide section level2">
-<h1>Algorithm</h1>
+<div id="algorithm-1" class="slide section level2">
+<h1>Algorithm (1)</h1>
 <ul>
-<li><p>Intro to ADMM</p>
+<li>Intro to ADMM</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+x\in \mathbb R^m&amp;,z\in \mathbb R^n, c\in \mathbb R^p.\\ \\
+\min_{x,z}&amp;~f(x)+g(z),\\
+s.t.&amp;~Ax+Bz=c.
+\end{aligned}
+\]</span></p>
+<p>Augmented Lagrangian (“soft” constraint). <span class="math display">\[
+\min_{x,z,y}L_\rho(x,z,y)=f(x)+g(z)+y^T(Ax+Bz-c)+\frac\rho2\|Ax+Bz-c\|_2^2.
+\]</span></p>
+</div>
+<div id="algorithm-2" class="slide section level2">
+<h1>Algorithm (2)</h1>
 <ul>
-<li>dual descent</li>
-<li>Multiplier method</li>
-<li>ADMM</li>
-</ul></li>
-<li><p>MAP framework</p></li>
+<li>MAP (maximal a posteriori)</li>
 </ul>
 <p><span class="math display">\[
 \max_x f(x|y)\propto f(y|x)f(x),
 \]</span> which is equivalent to maximize <span class="math display">\[
-\max_x \log(y|x)+\log(x)=l(y;x)+\beta \cdot s(x)
+\max_x \log f(y|x)+\log f(x)=l(y;x)+\beta \cdot s(x).
 \]</span></p>
 </div>
-<div id="algorithm-1" class="slide section level2">
-<h1>Algorithm</h1>
+<div id="algorithm-3" class="slide section level2">
+<h1>Algorithm (3)</h1>
 <ul>
 <li>Framework in this paper</li>
 </ul>
@@ -459,6 +469,9 @@ x^{(k+1)}=\arg\min_x \frac12\|x-\tilde x\|_2^2+t_k\tau\|x\|_{TV}.
 </div>
 <div id="experimental-results" class="slide section level2">
 <h1>Experimental Results</h1>
+</div>
+<div id="experiment-and-recent-work-optional" class="slide section level2">
+<h1>Experiment and recent work (optional)</h1>
 <ul>
 <li><p>example with using <span class="math display">\[ l(y;x) = \frac{1}{2}\| y -  Ax\|^{2} \]</span></p></li>
 <li><p>A is a tomographic forward projector</p></li>
@@ -490,6 +503,14 @@ x^{(k+1)}=\arg\min_x \frac12\|x-\tilde x\|_2^2+t_k\tau\|x\|_{TV}.
 <p class="caption">Phantom Comparison</p>
 </div>
 </center>
+</div>
+<div id="more-about-admm-optional" class="slide section level2">
+<h1>More about ADMM (optional)</h1>
+<ul>
+<li>dual descent</li>
+<li>Multiplier method</li>
+<li>ADMM</li>
+</ul>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->
