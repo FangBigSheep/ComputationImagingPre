@@ -26,7 +26,7 @@ Zhengyang Fang
 </ul>
 <p><span class="math inline">\(y\)</span>: observation. <span class="math inline">\(x\)</span>: the “truth”. <span class="math inline">\(A\)</span>: forward transform.</p>
 <p><span class="math display">\[
-\hat x =\min_x\|y-Ax\|_2^2-\tau\|x\|_{TV}.
+\hat x =\arg \min_x\|y-Ax\|_2^2-\tau\|x\|_{TV}.
 \]</span></p>
 <p>Solve by proximal gradient method:</p>
 <p>Step 1. <span class="math display">\[
@@ -35,7 +35,12 @@ Zhengyang Fang
 x^{(k+1)}=\arg\min_x \frac12\|x-\tilde x\|_2^2+t_k\tau\|x\|_{TV}.
 \]</span></p>
 <ul>
-<li>Plug-and-play</li>
+<li><p>Motivation</p>
+<ul>
+<li><p>Generalize those two terms</p></li>
+<li><p>Use ADMM instead of proximal gradient method</p></li>
+<li><p>Plug-and-play: apply <em>(any)</em> denoising algorithm</p></li>
+</ul></li>
 </ul>
 </div>
 <div id="algorithm" class="slide section level2">
@@ -62,8 +67,8 @@ x^{(k+1)}=\arg\min_x \frac12\|x-\tilde x\|_2^2+t_k\tau\|x\|_{TV}.
 </ul>
 <p>Solve <span class="math display">\[
 \begin{aligned}
-(\hat x,\hat v)=&amp;\arg\min_{x,v}\{l(y;x)+\beta\cdot s(v)\},\\
-&amp;s.t.x=v.
+(\hat x,\hat v)=~&amp;\arg\max_{x,v}\{l(y;x)+\beta\cdot s(v)\},\\
+&amp;s.t.~x=v.
 \end{aligned}
 \]</span></p>
 <p><span class="math inline">\(l(y;x)\)</span>: the forward transform.</p>
