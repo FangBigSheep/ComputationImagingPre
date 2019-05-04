@@ -7,7 +7,7 @@ output: slidy_presentation
 
 ## Motivation
 
-- Example: 
+- Example: Deblurring -> denoising
 
 $y$: observation. $x$: the "truth". $A$: forward transform.
 
@@ -31,7 +31,22 @@ $$
 ## Algorithm
 
 - Intro to ADMM
+
+    + dual descent
+    + Multiplier method 
+    + ADMM
+
 - MAP framework
+
+$$
+\max_x f(x|y)\propto f(y|x)f(x),
+$$
+which is equivalent to maximize
+$$
+\max_x \log(y|x)+\log(x)=l(y;x)+\beta \cdot s(x)
+$$
+
+
 
 ## Experiment and recent work (optional)
 
