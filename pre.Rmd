@@ -108,7 +108,30 @@ $$
 $$
 
 
-## Experiment and recent work (optional)
+## Experimental Results
 
-optional
+- example with using $$ l(y;x) = \frac{1}{2}\| y -  Ax\|^{2} $$
 
+- A is a tomographic forward projector
+- test on the Shepp-Logan phantom image with noise
+  - 64 by 64 
+  - values scaled between 0 and 255
+  
+- tried it with these denoising priors:
+  - K-SVD
+  - BM3D
+  - PLOW
+  - Total Variation
+  - q-GGMRF
+  
+- $$ \lambda = \frac{1}{20}$$
+
+
+## Experimental Results
+
+<center>
+![Phantom](images/phantom.png){width=250px}
+
+![Phantom Comparison](images/phantom_comparison.png){width=550px}
+
+</center>
