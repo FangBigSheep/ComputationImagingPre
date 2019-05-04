@@ -1,46 +1,39 @@
 ---
-title: "Untitled"
+title: "Computational Imaging Presentation"
 author: "Zhengyang Fang"
 date: "May 4, 2019"
 output: slidy_presentation
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
-
-## R Markdown
-
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
-
-## Slide with Bullets
-
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
-## Slide with R Output
-
-```{r cars, echo = TRUE}
-summary(cars)
-```
-
-## Slide with Plot
-
-```{r pressure}
-plot(pressure)
-```
-
 ## Motivation
 
+- Example: 
+
+$y$: observation. $x$: the "truth". $A$: forward transform.
+
+$$
+\hat x =\min_x\|y-Ax\|_2^2-\tau\|x\|_{TV}.
+$$
+
+Solve by proximal gradient method:
+
+Step 1.
+$$
+\tilde x=x^{(k)}-t_kA^T(y-Ax^{(k)}).
+$$
+Step 2. Solve
+$$
+x^{(k+1)}=\arg\min_x \frac12\|x-\tilde x\|_2^2+t_k\tau\|x\|_{TV}.
+$$
+
 - Plug-and-play
-- Example: deblur -> denoise
 
 ## Algorithm
 
 - Intro to ADMM
 - MAP framework
 
-## Experiment and recent work (option)
+## Experiment and recent work (optional)
+
+optional
+
