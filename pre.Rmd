@@ -46,6 +46,32 @@ $$
 \max_x \log(y|x)+\log(x)=l(y;x)+\beta \cdot s(x)
 $$
 
+## Algorithm
+
+- Framework in this paper
+
+Solve
+$$
+\begin{aligned}
+(\hat x,\hat v)=&\arg\min_{x,v}\{l(y;x)+\beta\cdot s(v)\},\\
+&s.t.x=v.
+\end{aligned}
+$$
+
+$l(y;x)$: the forward transform.
+
+$\beta\cdot s(v)$: the prior.
+
+Algorithm:
+
+> repeat until converge:
+$$
+\begin{aligned}
+&\hat x\leftarrow \arg\min_x\left\{l(y;x)+\frac\lambda 2\|x-(\hat v-u)\|_2^2\right\},\\
+&\hat v\leftarrow \arg\min_v\left\{\frac \lambda 2\|v-(\hat x +u)\|^2_2+\beta s(v)\right\},\\
+&v\leftarrow u+(\hat x-\hat v).
+\end{aligned}
+$$
 
 
 ## Experiment and recent work (optional)
