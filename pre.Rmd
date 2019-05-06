@@ -65,7 +65,7 @@ $$
 
 ## Algorithm (1)
 
-- Intro to ADMM
+- Intro to ADMM 
 
 $$
 \begin{aligned}
@@ -80,6 +80,10 @@ $$
 \min_{x,z,y}L_\rho(x,z,y)=f(x)+g(z)+y^T(Ax+Bz-c)+\frac\rho2\|Ax+Bz-c\|_2^2.
 $$
 
+- reference 
+
+    + Boyd, Stephen, Neal Parikh, Eric Chu, Borja Peleato, and Jonathan Eckstein. "Distributed optimization and statistical learning via the alternating direction method of multipliers." Foundations and Trends® in Machine learning 3, no. 1 (2011): 1-122.
+
 ## Algorithm (2)
 
 - MAP (maximal a posteriori)
@@ -89,7 +93,7 @@ $$
 $$
 which is equivalent to maximize
 $$
-\max_x \log f(y|x)+\log f(x)=l(y;x)+\beta \cdot s(x).
+\max_x \left(\log f(y|x)+\log f(x)\right)=\max_x(l(y;x)+\beta \cdot s(x)).
 $$
 
 ## Algorithm (3)
@@ -119,6 +123,19 @@ $$
 \end{aligned}
 $$
 
+## Related work
+
+- Why ADMM
+
+    + http://www.stronglyconvex.com/blog/admm-to-prox-grad.html
+
+- Convergence
+
+    + Chan, Stanley H., Xiran Wang, and Omar A. Elgendy. "Plug-and-play ADMM for image restoration: Fixed-point convergence and applications." IEEE Transactions on Computational Imaging 3, no. 1 (2017): 84-98.
+
+- Extension
+
+    + Zhang, Kai, Wangmeng Zuo, and Lei Zhang. "Deep Plug-and-Play Super-Resolution for Arbitrary Blur Kernels." arXiv preprint arXiv:1903.12529 (2019).
 
 ## Experimental Results (1)
 
