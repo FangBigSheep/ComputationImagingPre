@@ -26,7 +26,7 @@ $$
 x^{(k+1)}=\arg\min_x \frac12\|x-\tilde x\|_2^2+t_k\tau\|x\|_{TV}.
 $$
 
-- Motivation
+- Broad Motivation
 
     + Generalize those two terms
 
@@ -50,7 +50,7 @@ $$
 
 - There has been great progress in improving forward models and denoising algorithms, but little progress has been made to cleanly integrate those two steps
 
-- There has been attempts (ex. BM3D) to incorporate advanced priors with general inverse problems, but is not general enough
+- There has been attempts (ex. BM3D) to incorporate advanced priors with general inverse problems, but the approaches are not directly applicable to a general inverse problem
 
 ## What the Model Provides
 
@@ -120,9 +120,7 @@ $$
 $$
 
 
-## Experimental Results
-
-## Experiment and recent work (optional)
+## Experimental Results (1)
 
 - example with using $$ l(y;x) = \frac{1}{2}\| y -  Ax\|^{2} $$
 
@@ -138,10 +136,10 @@ $$
   - Total Variation
   - q-GGMRF
   
-- $$ \lambda = \frac{1}{20}$$
+- regularization parameter: $$ \lambda = \frac{1}{20}$$
 
 
-## Experimental Results
+## Experimental Results (2)
 
 <center>
 ![Phantom](images/phantom.png){width=250px}
@@ -149,6 +147,23 @@ $$
 ![Phantom Comparison](images/phantom_comparison.png){width=550px}
 
 </center>
+
+
+## Experimental Results (3) 
+
+<center>
+![RMSE Plot](images/RMSE Plot.png){width=500px}
+
+</center>
+
+
+## Experimental Results (4) 
+
+<center>
+![RMSE Table](images/RMSE Table.png){width=500px}
+
+</center>
+
 
 ## More about ADMM (optional)
 
