@@ -36,17 +36,10 @@ $$
 
 
 
-## Why the Plug and Play Model Is Important
-
-
-- In the previous slide, solving the forward (the forwards transform) plus prior (the denoising part) model is specific to the problem
-
-- It is sub optimal to create a new algorithm every time we have a different combination of a forward and prior model
-
-- The goal of the Plug-and-Play Priors for model reconstruction aims to solve that issue
-
 
 ## Brief Background 
+
+- In the previous slide, solving the forward (the forwards transform) plus prior (the denoising part) model is specific to the problem, but we want something more general
 
 - There has been great progress in improving forward models and denoising algorithms, but little progress has been made to cleanly integrate those two steps
 
@@ -55,12 +48,15 @@ $$
 ## What the Model Provides
 
 
-
 - this model provides the flexibility to combine state of the art forward models with state of the art denoising models
 
 - allows us to use denoising methods that are not explicitly formulated as an optimization problem
 
 - simplifies software integration by decoupling the prior and forwards model terms
+  - allows different combination of a forward and prior model without having to dramatically change the code for that a certain combination
+
+
+
 
 
 ## Algorithm (1)
